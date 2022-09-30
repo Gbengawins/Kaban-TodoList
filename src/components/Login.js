@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => { 
-    const [ username, setUsername ] = useState('');
+    const [ username, setUsername ] = useState(" ");
     const navigate = useNavigate();
 
     const handleLogin = (e) => { 
         e.preventDefault();
         //Saving username to localStorage
         localStorage.setItem('userId', username);
-        setUsername('');
+        setUsername("");
         navigate("/task");
     };
 
