@@ -1,7 +1,7 @@
 import React from 'react';
-import AddTask from './components/AddTask';
-import TaskContainer from './components/TaskContainer';
-import Nav from './components/Nav';
+import AddTask from './AddTask';
+import TaskContainer from './TasksContainer';
+import Nav from './Nav';
 import socketIO from 'socket.io-client';
 
 

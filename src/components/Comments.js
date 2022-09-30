@@ -10,23 +10,22 @@ const Comments = () => {
     const [commentList, setCommentList] = useState([]);
 
     useEffect(() => {
-        socket.emit("fetchComments", { category, id });
-    }, [ category, id ]);
-    
+      socket.emit("fetchComments", { category, id });
+    }, [category, id]);
+
     useEffect(() => {
-        socket.on("comments", (data) => setComment(data));
+      socket.on("comments", (data) => setCommentList(data));
     }, []);
 
     const addComment = (e) => {
-        e.preventDefault();
-
-        socket.emit("addComment", {
-            comment,
-            category,
-            id,
-            userId: localStorage.getItem("userId"),
-        });
-        setComment("");
+      e.preventDefault();
+      socket.emit("addComment", {
+        comment,
+        category,
+        id,
+        userId: localStorage.getItem("userId"),
+      });
+      setComment("");
     };
     
     return (
@@ -50,7 +49,7 @@ const Comments = () => {
                 { commentList.map((comment) => (
                     <div key={ comment.id }>
                         <p>
-                            <span style={ { fontweight: 'bold' } }>{ comment.text }</span>by{ "" }
+                            <span style={ { fontWeight: "bold" } }>{ comment.text }</span>by{ "" }
                             {comment.name}
                         </p>
                     </div>

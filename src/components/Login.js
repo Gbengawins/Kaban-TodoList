@@ -10,10 +10,15 @@ const Login = () => {
         //Saving username to localStorage
         localStorage.setItem('userId', username);
         setUsername('');
+        navigate("/task");
     };
+
     return (
         <div className="login__container">
-            <form onSubmit={ handleLogin } className="login__form">
+            <form
+                onSubmit={ handleLogin }
+                className="login__form"
+            >
                 <label htmlFor="username" className="login__label">Username</label>
                 <input
                     type="text"
